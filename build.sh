@@ -8,6 +8,8 @@ export TARGETS='x86_64-linux-android armv7-linux-androideabi aarch64-linux-andro
 export NDK_HOME="${root}/ndk"
 export NDK_VERSION='r21d'
 export ANDROID_HOME="$NDK_HOME"  # for the toolchain-wrapper scripts
+export PREFIX="${root}/deps"
 
 ./scripts/fetch-ndk.sh
 ./scripts/bootstrap-wrappers.sh
+./scripts/init-prefix.sh
