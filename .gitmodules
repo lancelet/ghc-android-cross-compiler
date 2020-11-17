@@ -1,3 +1,0 @@
-[submodule "toolchain-wrapper"]
-	path = toolchain-wrapper
-	url = https://github.com/zw3rk/toolchain-wrapper
