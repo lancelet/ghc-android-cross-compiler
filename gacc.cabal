@@ -1,0 +1,57 @@
+cabal-version:      2.4
+name:               gacc
+version:            0.1.0.0
+license:            BSD-3-Clause
+license-file:       LICENSE
+copyright:          Copyright (C) Jonathan Merritt 2020
+maintainer:         j.s.merritt@gmail.com
+author:             Jonathan Merritt
+synopsis:           GHC Android Cross-Compiler Builder
+description:        A GHC Android Cross-Compiler Builder
+category:           Development
+extra-source-files: CHANGELOG.md
+
+source-repository head
+    type:     git
+    location: https://github.com/lancelet/ghc-android-cross-compiler
+
+library
+    exposed-modules:
+        GACC.AndroidNDK
+        GACC.Config
+        GACC.BuildDir
+
+    hs-source-dirs:   src
+    default-language: Haskell2010
+    ghc-options:
+        -Wall -Wcompat -Wincomplete-record-updates
+        -Wincomplete-uni-patterns -Wredundant-constraints
+
+    build-depends:
+        base ^>=4.14.1.0,
+        path ^>=0.8.0,
+        extra ^>=1.7.8,
+        path-io ^>=1.6.2,
+        rio ^>=0.1.19.0,
+        shake-plus ^>=0.3.3.1,
+        text ^>=1.2.3.2,
+        microlens ^>=0.4.11.2,
+        microlens-mtl ^>=0.2.0.1,
+        mtl ^>=2.2.2
+
+executable gacc
+    main-is:          Main.hs
+    hs-source-dirs:   app
+    default-language: Haskell2010
+    ghc-options:
+        -Wall -Wcompat -Wincomplete-record-updates
+        -Wincomplete-uni-patterns -Wredundant-constraints
+
+    build-depends:
+        base ^>=4.14.1.0,
+        path ^>=0.8.0,
+        shake-plus ^>=0.3.3.1,
+        text ^>=1.2.3.2,
+        microlens ^>=0.4.11.2,
+        mtl ^>=2.2.2,
+        gacc -any
